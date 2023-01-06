@@ -41,34 +41,35 @@
         Emacs Lisp with a reference to where each is described.
      
 #+begin_src elisp 'SIGNATURE_LIST OF ALL SPECIAL-FORMS' 
-(save-current-buffer
-(save-restriction
-(unwind-protect
-(save-excursion
-(condition-case
-(setq-default
-(interactive
-(function
-(defconst
-(lambda
+(save-current-buffer &rest BODY)
+(save-restriction &rest BODY)
+(unwind-protect BODYFORM UNWINDFORMS...)
+(save-excursion &rest BODY) 
+(condition-case VAR BODYFORM &rest HANDLERS)
+(setq-default [VAR VALUE]...)
+(interactive &optional ARG-DESCRIPTOR)
+(function ARG)
+(defconst SYMBOL INITVALUE [DOCSTRING])
+(lambda ARGS [DOCSTRING] [INTERACTIVE] BODY)
 (defvar SYMBOL &optional INITVALUE DOCSTRING)
-(quote
-(catch
-(while
-(progn
-(prog2
-(prog1
-(cond 
-(setq
-(and
-(let*
-(let
-(or
-(if
+(quote ARG)
+(catch TAG BODY...)
+(while TEST BODY...)
+(progn BODY...)
+(prog2 FORM1 FORM2 BODY...)
+(prog1 FIRST BODY...)
+(cond CLAUSES...) 
+(setq [SYM VAL]...)
+(and CONDITIONS...)
+(let* VARLIST BODY...)
+(let VARLIST BODY...)
+(or CONDITIONS...)
+(if COND THEN ELSE...)
 #+end_src
 
 #+begin_src elisp 'defvar-examples'
 (defvar ...
+
 
 (defvar ... ;V2
 
